@@ -92,6 +92,7 @@ SubTotal — Line-item subtotal
 
 **🔗 Relationship Design**
 
+
 The database uses primary keys and foreign keys to maintain relationships between tables.
 
 One customer can place multiple orders.
@@ -101,11 +102,14 @@ One product can appear in multiple order details.
 This structure helps organize data and maintain referential integrity.
 
 **💻 SQL Highlights**
+
 **Database Initialization**
+
 CREATE DATABASE Data_Digger;
 USE Data_Digger;
 
 **Customer Management**
+
 UPDATE Customers
 SET Address = 'Vadodara'
 WHERE CustomerID = 2;
@@ -114,6 +118,7 @@ WHERE CustomerID = 2;
 Updates a customer's address using their unique ID.
 
 **Product Price Analysis**
+
 SELECT
     MAX(Price) AS Highest_Price,
     MIN(Price) AS Lowest_Price
@@ -123,6 +128,7 @@ FROM Products;
 Finds the highest and lowest product prices.
 
 **Revenue Calculation**
+
 SELECT SUM(SubTotal) AS Total_Revenue
 FROM OrderDetails;
 
@@ -130,6 +136,7 @@ FROM OrderDetails;
 Calculates total revenue from the recorded order-detail subtotals.
 
 **Top-Selling Product**s
+
 SELECT
     ProductID,
     SUM(Quantity) AS Total_Quantity_Sold
@@ -146,33 +153,55 @@ Ranks products according to their total recorded quantities sold.
 Data Digger covers the following SQL concepts:
 
 **DDL**: CREATE DATABASE, CREATE TABLE
+
 **DML**: INSERT, UPDATE, DELETE
+
 **DQL**: SELECT
+
 **Filtering**: WHERE, BETWEEN
+
 **Sorting**: ORDER BY
+
 **Aggregation**: SUM(), AVG(), MAX(), MIN(), COUNT()
+
 **Grouping**: GROUP BY
+
 **Constraints**: PRIMARY KEY, FOREIGN KEY, UNIQUE
+
 **Table inspection**: DESC
+
 
 **📈 Sample Data Insights**
 
 Based on the provided sample data and the executed operations:
 
 Analysis	                                           Result
+
 Initial customers inserted                             	5
+
 Initial orders inserted	                                5
+
 Initial products inserted	                            5
+
 Order-detail records inserted	                        5
+
 Highest remaining order amount                      	2200.00
+
 Lowest remaining order amount                       	800.00
+
 Average remaining order amount                      	1450.00
+
 Highest product price	                                55000.00
+
 Lowest product price	                                800.00
 
-**Note:** These figures reflect the script's operations and sample data. Revenue calculated from OrderDetails may differ from the sum of Orders.TotalAmount because the supplied sample amounts are not fully consistent.
+
+**Note:**
+
+These figures reflect the script's operations and sample data. Revenue calculated from OrderDetails may differ from the sum of Orders.TotalAmount because the supplied sample amounts are not fully consistent.
 
 **🚀 How to Run**
+
 Install MySQL Server and MySQL Workbench, or use phpMyAdmin.
 Connect to your MySQL server.
 Open a new SQL editor tab.
@@ -183,6 +212,7 @@ Run the SELECT queries to inspect the resulting data.
 Important: The script drops and recreates Data_Digger. Existing data in that database will be deleted when you execute it.
 
 **🧠 Key Learning Outcomes**
+
 
 Through this project, I practiced:
 
@@ -213,8 +243,12 @@ This project represents a foundation for building more advanced database applica
 **👨‍💻 Project Information**
 
 **Project Name**: Data Digger
+
 **Category:** Database Management & Data Analysis
+
 **Technology**: MySQL and SQL
+
 **Purpose**: Learning and practical implementation of SQL concepts
+
 
 **Athor :- Raj Dabhade**
