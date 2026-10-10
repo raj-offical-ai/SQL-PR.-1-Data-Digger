@@ -1,4 +1,5 @@
 **🔎 DATA DIGGER**
+
 **SQL-Powered Database Management & Sales Analysis**
 Turning raw data into meaningful insights with MySQL.
 
