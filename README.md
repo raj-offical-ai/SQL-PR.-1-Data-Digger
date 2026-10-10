@@ -20,11 +20,17 @@ Analyze revenue and product sales.
 Apply SQL queries to solve practical data management problems.
 
 **🛠️ Tech Stack**
+
 Component    	       Technology
+
 Database	           MySQL
+
 Query Language	       SQL
+
 Database Tools         MySQL Workbench / phpMyAdmin
+
 Data Analysis	       SQL Aggregate Functions
+
 
 **🗂️ Database Architecture**
 
