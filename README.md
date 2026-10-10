@@ -41,37 +41,54 @@ The project consists of four interconnected tables.
 Stores customer identity and contact information.
 
 CustomerID — Primary Key
+
 Name — Customer name
+
 Email — Unique email address
+
 Address — Customer location
+
 
 **2. Orders 🧾**
 
 Maintains order information associated with customers.
 
 OrderID — Primary Key
+
 CustomerID — Foreign Key
+
 OrderDate — Order date
+
 TotalAmount — Order amount
+
 
 **3. Products 📦**
 
 Contains product information and inventory details.
 
 ProductID — Primary Key
+
 ProductName — Product name
+
 Price — Product price
+
 Stock — Available stock
+
 
 **4. OrderDetails 🛒**
 
 Connects orders with their individual products.
 
 OrderDetailID — Primary Key
+
 OrderID — Foreign Key
+
 ProductID — Foreign Key
+
 Quantity — Units ordered
+
 SubTotal — Line-item subtotal
+
 
 **🔗 Relationship Design**
 
