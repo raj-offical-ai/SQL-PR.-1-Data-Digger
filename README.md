@@ -1,116 +1,111 @@
-DATA DIGGER – SQL Database Management Project
-1. Project Overview
+**🔎 DATA DIGGER**
+**SQL-Powered Database Management & Sales Analysis**
+Turning raw data into meaningful insights with MySQL.
 
-Data Digger is a SQL-based database management project developed using MySQL. It is designed to manage customer information, orders, products, and order details. This project demonstrates basic SQL operations such as INSERT, SELECT, UPDATE, DELETE, filtering, sorting, grouping, and aggregate functions.
+**📌 About the Project**
 
-2. Project Objectives
-To create and manage a database using MySQL.
-To store customer and product information.
-To manage customer orders and order details.
-To perform CRUD operations.
-To calculate totals, averages, minimum values, and maximum values.
-To analyze product sales using SQL queries.
-To understand primary keys and foreign keys.
-3. Technologies Used
-Database: MySQL
-Language: SQL
-Tools: MySQL Workbench / phpMyAdmin
-4. Database Name
+**Data Digger** is a database management project built using MySQL to organize customer information, manage orders, maintain product records, and analyze sales data.
 
-Data_Digger
+The project demonstrates how SQL can be used to store, update, retrieve, and analyze structured data through practical database operations.
 
-5. Tables Used
-Customers
+From customer management to product sales analysis, Data Digger brings essential database concepts together in one project.
 
-Stores customer details.
+**🎯 Project Goals**
+Build a structured relational database.
+Manage customer profiles and addresses.
+Track customer orders and order amounts.
+Maintain product prices and stock information.
+Analyze revenue and product sales.
+Apply SQL queries to solve practical data management problems.
 
-CustomerID (Primary Key)
-Name
-Email (Unique)
-Address
-Orders
+**🛠️ Tech Stack**
+Component    	       Technology
+Database	           MySQL
+Query Language	       SQL
+Database Tools         MySQL Workbench / phpMyAdmin
+Data Analysis	       SQL Aggregate Functions
 
-Stores customer order information.
+**🗂️ Database Architecture**
 
-OrderID (Primary Key)
-CustomerID (Foreign Key)
-OrderDate
-TotalAmount
-Products
+The project consists of four interconnected tables.
 
-Stores product information.
+**1. Customers 👥**
 
-ProductID (Primary Key)
-ProductName
-Price
-Stock
-OrderDetails
+Stores customer identity and contact information.
 
-Stores product details associated with each order.
+CustomerID — Primary Key
+Name — Customer name
+Email — Unique email address
+Address — Customer location
 
-OrderDetailID (Primary Key)
-OrderID (Foreign Key)
-ProductID (Foreign Key)
-Quantity
-SubTotal
-6. SQL Operations Performed
-Database Creation
+**2. Orders 🧾**
+
+Maintains order information associated with customers.
+
+OrderID — Primary Key
+CustomerID — Foreign Key
+OrderDate — Order date
+TotalAmount — Order amount
+
+**3. Products 📦**
+
+Contains product information and inventory details.
+
+ProductID — Primary Key
+ProductName — Product name
+Price — Product price
+Stock — Available stock
+
+**4. OrderDetails 🛒**
+
+Connects orders with their individual products.
+
+OrderDetailID — Primary Key
+OrderID — Foreign Key
+ProductID — Foreign Key
+Quantity — Units ordered
+SubTotal — Line-item subtotal
+
+**🔗 Relationship Design**
+
+The database uses primary keys and foreign keys to maintain relationships between tables.
+
+One customer can place multiple orders.
+One order can contain multiple order-detail records.
+One product can appear in multiple order details.
+
+This structure helps organize data and maintain referential integrity.
+
+**💻 SQL Highlights**
+**Database Initialization**
 CREATE DATABASE Data_Digger;
 USE Data_Digger;
 
-Insert Records
-
-Sample records are inserted into all four tables using the INSERT INTO statement.
-
-Retrieve Records
-SELECT * FROM Customers;
-SELECT * FROM Orders;
-SELECT * FROM Products;
-SELECT * FROM OrderDetails;
-
-Update Records
-
-Customer addresses, order amounts, and product prices are updated using UPDATE statements.
-
-Example:
-
+**Customer Management**
 UPDATE Customers
 SET Address = 'Vadodara'
 WHERE CustomerID = 2;
 
-Delete Records
 
-Customer, order, and product records are deleted using DELETE statements.
+Updates a customer's address using their unique ID.
 
-Example:
-
-DELETE FROM Products
-WHERE ProductID = 203
-AND Stock = 0;
-
-Sorting and Filtering
-
-The project uses WHERE, BETWEEN, ORDER BY, and LIMIT clauses to retrieve specific records and sort results.
-
-Example:
-
-SELECT *
-FROM Products
-ORDER BY Price DESC;
-
-Aggregate Functions
-
-The project uses MAX(), MIN(), AVG(), SUM(), and COUNT() to analyze data.
-
-Example:
-
+**Product Price Analysis**
 SELECT
-    MAX(TotalAmount) AS Highest_Order_Amount,
-    MIN(TotalAmount) AS Lowest_Order_Amount,
-    AVG(TotalAmount) AS Average_Order_Amount
-FROM Orders;
+    MAX(Price) AS Highest_Price,
+    MIN(Price) AS Lowest_Price
+FROM Products;
 
-Grouping and Sales Analysis
+
+Finds the highest and lowest product prices.
+
+**Revenue Calculation**
+SELECT SUM(SubTotal) AS Total_Revenue
+FROM OrderDetails;
+
+
+Calculates total revenue from the recorded order-detail subtotals.
+
+**Top-Selling Product**s
 SELECT
     ProductID,
     SUM(Quantity) AS Total_Quantity_Sold
@@ -120,56 +115,82 @@ ORDER BY Total_Quantity_Sold DESC
 LIMIT 3;
 
 
-This query displays the top three products based on total quantity sold.
+Ranks products according to their total recorded quantities sold.
 
-7. Project Analysis and Results
-Customers
-Five sample customers were inserted.
-CustomerID 2's address was updated from Surat to Vadodara.
-CustomerID 5 was deleted.
-Customer details were retrieved using SELECT queries.
-The customer search query searches for the name 'raj'.
-Orders
-Five sample orders were inserted.
-CustomerID 1 has orders 101 and 104.
-Order 101's amount was updated from 1500.00 to 1600.00.
-Order 105 was deleted.
-Recent orders were retrieved using a date condition.
-Highest order amount: 2200.00
-Lowest order amount: 800.00
-Average order amount: 1450.00
-Products
-Five sample products were inserted.
-Products were displayed in descending order of price.
-Smartphone price was updated from 25000.00 to 27000.00.
-Out-of-stock Headphones were deleted.
-Keyboard and Mouse fall within the price range of 500 to 2000.
-Highest product price: 55000.00
-Lowest product price: 800.00
-OrderDetails
-Five order-detail records were inserted.
-Order 101 has two order-detail records.
-Total revenue is calculated using SUM(SubTotal).
-Product quantities are grouped and sorted to identify the top three products.
-ProductID 204 appears in two order-detail records.
-8. How to Run the Project
-Install MySQL Server and MySQL Workbench.
-Open MySQL Workbench and connect to the server.
-Open a new SQL query tab.
-Copy and paste the SQL script.
+**📊 Project Operations**
+
+Data Digger covers the following SQL concepts:
+
+**DDL**: CREATE DATABASE, CREATE TABLE
+**DML**: INSERT, UPDATE, DELETE
+**DQL**: SELECT
+**Filtering**: WHERE, BETWEEN
+**Sorting**: ORDER BY
+**Aggregation**: SUM(), AVG(), MAX(), MIN(), COUNT()
+**Grouping**: GROUP BY
+**Constraints**: PRIMARY KEY, FOREIGN KEY, UNIQUE
+**Table inspection**: DESC
+
+**📈 Sample Data Insights**
+
+Based on the provided sample data and the executed operations:
+
+Analysis	                                           Result
+Initial customers inserted                             	5
+Initial orders inserted	                                5
+Initial products inserted	                            5
+Order-detail records inserted	                        5
+Highest remaining order amount                      	2200.00
+Lowest remaining order amount                       	800.00
+Average remaining order amount                      	1450.00
+Highest product price	                                55000.00
+Lowest product price	                                800.00
+
+**Note:** These figures reflect the script's operations and sample data. Revenue calculated from OrderDetails may differ from the sum of Orders.TotalAmount because the supplied sample amounts are not fully consistent.
+
+**🚀 How to Run**
+Install MySQL Server and MySQL Workbench, or use phpMyAdmin.
+Connect to your MySQL server.
+Open a new SQL editor tab.
+Paste the Data Digger SQL script.
 Execute the script.
-View the results of the SELECT queries.
+Run the SELECT queries to inspect the resulting data.
 
-Note: The script drops and recreates the database. Existing data in Data_Digger will be deleted when the script is executed.
+Important: The script drops and recreates Data_Digger. Existing data in that database will be deleted when you execute it.
 
-9. Learning Outcomes
-Learned database creation and table management.
-Understood CRUD operations in SQL.
-Learned primary key and foreign key relationships.
-Practiced filtering and sorting records.
-Used aggregate functions for data analysis.
-Learned GROUP BY and LIMIT for sales analysis.
-Understood relational database concepts.
-10. Conclusion
+**🧠 Key Learning Outcomes**
 
-The Data Digger project demonstrates the practical use of SQL for database management and data analysis. It covers customer management, order processing, product management, and sales analysis using SQL queries. This project provides a strong foundation in relational database concepts and SQL programming.
+Through this project, I practiced:
+
+Designing relational database tables.
+Implementing CRUD operations.
+Establishing table relationships using foreign keys.
+Retrieving and filtering records.
+Performing calculations using aggregate functions.
+Analyzing product quantities and revenue.
+Writing structured SQL queries for real-world scenarios.
+
+**🔮 Future Improvements**
+
+Potential enhancements for future versions include:
+
+Automatically calculating order totals from order details.
+Adding stock validation before accepting an order.
+Creating views for sales reports.
+Adding stored procedures and triggers.
+Building a dashboard for customer and sales analytics.
+
+**🏁 Conclusion**
+
+Data Digger demonstrates how MySQL can transform organized records into useful information. By combining customer management, order tracking, inventory records, and sales analysis, the project provides practical experience with core SQL and relational database concepts.
+
+This project represents a foundation for building more advanced database applications and data analytics solutions.
+
+**👨‍💻 Project Information**
+
+**Project Name**: Data Digger
+**Category:** Database Management & Data Analysis
+**Technology**: MySQL and SQL
+**Purpose**: Learning and practical implementation of SQL concepts
+
+**Athor :- Raj Dabhade**
