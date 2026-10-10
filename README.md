@@ -21,13 +21,13 @@ Apply SQL queries to solve practical data management problems.
 
 **🛠️ Tech Stack**
 
-Component    	       Technology
+Component    	:       Technology
 
-Database	           MySQL
+Database	    :       MySQL
 
-Query Language	       SQL
+Query Language	:      SQL
 
-Database Tools         MySQL Workbench / phpMyAdmin
+Database Tools  :       MySQL Workbench / phpMyAdmin
 
 Data Analysis	       SQL Aggregate Functions
 
