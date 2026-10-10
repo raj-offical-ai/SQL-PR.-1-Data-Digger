@@ -251,4 +251,4 @@ This project represents a foundation for building more advanced database applica
 **Purpose**: Learning and practical implementation of SQL concepts
 
 
-**Athor :- Raj Dabhade**
+**Author :- Raj Dabhade**
